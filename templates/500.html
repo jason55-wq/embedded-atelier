@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-hero error-state">
+  <div class="container">
+    <p class="eyebrow">500</p>
+    <h1>伺服器暫時發生錯誤</h1>
+    <p>請稍後再試，或改用 Email 與我聯繫。</p>
+    <a class="button" href="{{ url_for('contact_page') }}">前往聯絡頁</a>
+  </div>
+</section>
+{% endblock %}

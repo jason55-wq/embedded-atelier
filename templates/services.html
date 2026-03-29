@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Services</p>
+    <h1>服務項目</h1>
+    <p>以控制系統、嵌入式整合與作品落地為核心，提供實作導向的技術服務。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="card-grid">
+      {% for service in services %}
+      <article class="card service-detail-card">
+        <h2>{{ service.title }}</h2>
+        <p>{{ service.summary }}</p>
+        <ul class="detail-list">
+          {% for feature in service.features %}
+          <li>{{ feature }}</li>
+          {% endfor %}
+        </ul>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

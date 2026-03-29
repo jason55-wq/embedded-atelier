@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-hero error-state">
+  <div class="container">
+    <p class="eyebrow">404</p>
+    <h1>找不到你要的頁面</h1>
+    <p>請返回首頁或從導覽列前往其他內容。</p>
+    <a class="button" href="{{ url_for('home') }}">回到首頁</a>
+  </div>
+</section>
+{% endblock %}

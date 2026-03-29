@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Portfolio / Products</p>
+    <h1>作品 / 商品</h1>
+    <p>以下為示範卡片結構，可持續擴充為商品頁、案例頁或更完整的作品資料庫。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="card-grid">
+      {% for item in products %}
+      <article class="card product-card">
+        <div class="card-topline">Project {{ "%02d"|format(loop.index) }}</div>
+        <h2>{{ item.name }}</h2>
+        <p>{{ item.description }}</p>
+        <ul class="tag-list">
+          {% for tag in item.tags %}
+          <li>{{ tag }}</li>
+          {% endfor %}
+        </ul>
+        <div class="card-footer">
+          <span class="price">{{ item.price }}</span>
+          <a class="button button-secondary button-small" href="{{ url_for('contact_page') }}">查看詳情</a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">About</p>
+    <h1>關於我</h1>
+    <p>這是一個以 Arduino / 嵌入式控制實作為核心的個人工作室，聚焦把技術方案做成能真正使用的作品。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container two-column">
+    <div class="card">
+      <h2>背景與專長</h2>
+      <p>
+        我長期專注於 Arduino、ESP32 與各類感測器、控制模組整合，擅長把需求拆解成可執行的電控與程式邏輯，
+        並兼顧展示、測試與後續維護的實務需求。
+      </p>
+    </div>
+    <div class="card">
+      <h2>工作室方向</h2>
+      <p>
+        工作室主要提供接案開發與作品開發服務，包含客製控制系統、互動展示裝置、小型 IoT 模組與可販售成品。
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Focus</p>
+      <h2>我提供的價值</h2>
+    </div>
+    <div class="card-grid compact-grid">
+      {% for point in about_points %}
+      <article class="card">
+        <p>{{ point }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
