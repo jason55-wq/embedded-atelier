@@ -15,7 +15,32 @@ document.querySelectorAll("[data-flash]").forEach((flash) => {
   }, 4200);
 });
 
-const githubRepoSection = document.querySelector("[data-github-repos]");
+const lineCopyButton = document.querySelector("[data-line-copy]");
+const lineCopyFeedback = document.querySelector("[data-line-copy-feedback]");
+
+if (lineCopyButton) {
+  lineCopyButton.addEventListener("click", async () => {
+    const lineId = lineCopyButton.dataset.lineId;
+
+    if (!lineId) {
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(lineId);
+      if (lineCopyFeedback) {
+        lineCopyFeedback.textContent = `LINE ID 已複製：${lineId}`;
+      }
+    } catch (error) {
+      console.error("Failed to copy LINE ID:", error);
+      if (lineCopyFeedback) {
+        lineCopyFeedback.textContent = `請手動複製 LINE ID：${lineId}`;
+      }
+    }
+  });
+}
+
+const githubRepoSections = document.querySelectorAll("[data-github-repos]");
 
 const githubIconMarkup = `
   <span class="github-icon" aria-hidden="true">
@@ -39,15 +64,15 @@ function escapeHtml(value) {
 
 function renderGithubFallback(container, profileUrl) {
   container.innerHTML = `
-    <article class="card product-card github-card">
+    <article class="card github-card">
       <div class="card-topline">GitHub / Fallback</div>
-      <h3>GitHub API unavailable</h3>
-      <p>Please open my GitHub profile directly to browse the full project list.</p>
+      <h3>GitHub 暫時無法載入</h3>
+      <p>請直接開啟我的 GitHub 個人頁面查看完整專案與程式碼。</p>
       <div class="card-footer">
         <span class="github-meta">Profile</span>
         <a class="button button-secondary button-small" href="${profileUrl}" target="_blank" rel="noopener noreferrer">
           ${githubIconMarkup}
-          <span>View GitHub</span>
+          <span>前往 GitHub 查看全部專案</span>
         </a>
       </div>
     </article>
@@ -59,10 +84,10 @@ function renderGithubRepos(container, repos, profileUrl) {
     .map((repo, index) => {
       const description = repo.description
         ? escapeHtml(repo.description)
-        : "No description provided for this repository.";
+        : "這個 repository 目前沒有填寫描述。";
 
       return `
-        <article class="card product-card github-card">
+        <article class="card github-card">
           <div class="card-topline">GitHub / ${String(index + 1).padStart(2, "0")}</div>
           <h3>${escapeHtml(repo.name)}</h3>
           <p>${description}</p>
@@ -70,7 +95,7 @@ function renderGithubRepos(container, repos, profileUrl) {
             <span class="github-meta">Repository</span>
             <a class="button button-secondary button-small" href="${repo.html_url}" target="_blank" rel="noopener noreferrer">
               ${githubIconMarkup}
-              <span>View GitHub</span>
+              <span>查看專案</span>
             </a>
           </div>
         </article>
@@ -83,14 +108,10 @@ function renderGithubRepos(container, repos, profileUrl) {
   }
 }
 
-async function loadGithubRepos() {
-  if (!githubRepoSection) {
-    return;
-  }
-
-  const username = githubRepoSection.dataset.githubUsername;
-  const profileUrl = githubRepoSection.dataset.githubProfileUrl;
-  const repoLimit = Number(githubRepoSection.dataset.repoLimit || "3");
+async function loadGithubRepos(container) {
+  const username = container.dataset.githubUsername;
+  const profileUrl = container.dataset.githubProfileUrl;
+  const repoLimit = Number(container.dataset.repoLimit || "3");
 
   if (!username || !profileUrl) {
     return;
@@ -117,11 +138,13 @@ async function loadGithubRepos() {
           .slice(0, repoLimit)
       : [];
 
-    renderGithubRepos(githubRepoSection, normalizedRepos, profileUrl);
+    renderGithubRepos(container, normalizedRepos, profileUrl);
   } catch (error) {
     console.error("Failed to load GitHub repositories:", error);
-    renderGithubFallback(githubRepoSection, profileUrl);
+    renderGithubFallback(container, profileUrl);
   }
 }
 
-loadGithubRepos();
+githubRepoSections.forEach((section) => {
+  loadGithubRepos(section);
+});

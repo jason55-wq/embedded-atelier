@@ -5,21 +5,20 @@
   <div class="container hero-grid">
     <div class="hero-copy">
       <p class="eyebrow">Personal Studio Official Website</p>
-      <h1>專注 Arduino 控制系統、ESP32 整合與實作型作品開發的個人工作室</h1>
+      <h1>專注 Arduino 控制系統、ESP32 整合與實作開發的個人工作室</h1>
       <p class="lead">
-        以 Arduino、ESP32 與感測器整合為核心，提供從概念驗證、電控設計到 IoT 應用開發的完整實作支援，
-        協助把想法做成可展示、可測試、可持續擴充的實際作品。
+        提供 Arduino、ESP32 與 IoT 實作導向的技術服務，協助把想法整理成可展示、可測試、可持續擴充的系統原型。
       </p>
       <div class="button-group">
         <a class="button" href="{{ url_for('contact_page') }}">聯絡洽詢</a>
-        <a class="button button-secondary" href="{{ url_for('portfolio_page') }}">查看作品</a>
+        <a class="button button-secondary" href="{{ url_for('portfolio_page') }}">查看 GitHub 專案</a>
       </div>
     </div>
     <div class="hero-panel">
       <div class="hero-card">
-        <span class="hero-label">工作室定位</span>
-        <strong>實作導向技術開發</strong>
-        <p>聚焦控制邏輯、展示互動與小型系統整合，兼顧原型驗證、實際應用與後續維護需求。</p>
+        <span class="hero-label">Studio Focus</span>
+        <strong>控制整合、展示原型、IoT 開發</strong>
+        <p>保留原本網站的科技感與簡潔版型，並將作品展示入口集中到 GitHub，方便直接查看完整專案與程式碼。</p>
       </div>
       <div class="metric-grid">
         <article>
@@ -27,12 +26,12 @@
           <span>核心服務方向</span>
         </article>
         <article>
-          <strong>6</strong>
-          <span>展示作品類型</span>
+          <strong>GitHub</strong>
+          <span>完整專案集中展示</span>
         </article>
         <article>
           <strong>MVP</strong>
-          <span>快速驗證流程</span>
+          <span>持續擴充中</span>
         </article>
       </div>
     </div>
@@ -44,7 +43,7 @@
     <div class="section-heading">
       <p class="eyebrow">Studio Intro</p>
       <h2>工作室簡介</h2>
-      <p>專注於 Arduino 控制系統開發、ESP32 連線整合、感測器應用與小型 IoT 實作，協助把需求整理成可落地的技術方案與展示成果。</p>
+      <p>本站聚焦 Arduino 控制系統、ESP32 整合、感測器應用與 IoT 原型開發，保留原有首頁與導覽結構，只將作品展示區改為 GitHub 專案入口。</p>
     </div>
   </div>
 </section>
@@ -53,7 +52,7 @@
   <div class="container">
     <div class="section-heading">
       <p class="eyebrow">Core Services</p>
-      <h2>核心服務</h2>
+      <h2>服務項目</h2>
     </div>
     <div class="card-grid">
       {% for service in services %}
@@ -75,13 +74,13 @@
   <div class="container">
     <div class="section-heading split-heading">
       <div>
-        <p class="eyebrow">Featured Work</p>
-        <h2>Featured Work / GitHub Repositories</h2>
-        <p>More complete projects are available on my GitHub profile.</p>
+        <p class="eyebrow">GitHub Showcase</p>
+        <h2>我的 GitHub 專案</h2>
+        <p>更多完整專案與程式碼請參考我的 GitHub。</p>
       </div>
       <a
         class="button button-secondary button-small github-profile-link"
-        href="https://github.com/we252668-maker"
+        href="{{ site.github_profile_url }}"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -93,41 +92,41 @@
             />
           </svg>
         </span>
-        <span>View My GitHub Work</span>
+        <span>前往 GitHub 查看全部專案</span>
       </a>
     </div>
     <div
       class="card-grid github-repo-grid"
       data-github-repos
-      data-github-username="we252668-maker"
-      data-github-profile-url="https://github.com/we252668-maker"
+      data-github-username="{{ site.github_username }}"
+      data-github-profile-url="{{ site.github_profile_url }}"
       data-repo-limit="3"
     >
-      <article class="card product-card github-card github-card-loading">
+      <article class="card github-card github-card-loading">
         <div class="card-topline">GitHub / 01</div>
-        <h3>Loading repositories...</h3>
-        <p>Fetching the latest repositories from GitHub and preparing the cards.</p>
+        <h3>載入專案中...</h3>
+        <p>正在讀取 GitHub 最新專案，保留原有卡片風格作為展示。</p>
         <div class="card-footer">
           <span class="github-meta">GitHub API</span>
-          <span class="button button-secondary button-small">Loading</span>
+          <span class="button button-secondary button-small">載入中</span>
         </div>
       </article>
-      <article class="card product-card github-card github-card-loading">
+      <article class="card github-card github-card-loading">
         <div class="card-topline">GitHub / 02</div>
-        <h3>Preparing project preview...</h3>
-        <p>This section keeps the current card layout and replaces the content with repository data.</p>
+        <h3>整理專案摘要...</h3>
+        <p>首頁已移除作品與商品內容，改為顯示 GitHub repository 資訊。</p>
         <div class="card-footer">
           <span class="github-meta">Profile Sync</span>
-          <span class="button button-secondary button-small">Loading</span>
+          <span class="button button-secondary button-small">載入中</span>
         </div>
       </article>
-      <article class="card product-card github-card github-card-loading">
+      <article class="card github-card github-card-loading">
         <div class="card-topline">GitHub / 03</div>
-        <h3>Fallback ready</h3>
-        <p>If the GitHub API is unavailable, this block will keep a direct profile link available.</p>
+        <h3>保留直接入口</h3>
+        <p>如果 GitHub API 暫時無法使用，仍會保留前往 GitHub 個人頁的按鈕。</p>
         <div class="card-footer">
           <span class="github-meta">Fallback Ready</span>
-          <span class="button button-secondary button-small">Loading</span>
+          <span class="button button-secondary button-small">載入中</span>
         </div>
       </article>
     </div>
@@ -138,7 +137,7 @@
   <div class="container cta-box">
     <div>
       <p class="eyebrow">Let's Build</p>
-      <h2>如果你正在規劃 Arduino 控制專案、互動裝置或 IoT 展示作品，歡迎直接和我討論。</h2>
+      <h2>如果你正在規劃 Arduino 控制、互動裝置或 IoT 系統，歡迎直接和我討論。</h2>
     </div>
     <a class="button" href="{{ url_for('contact_page') }}">聯絡洽詢</a>
   </div>

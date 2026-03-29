@@ -345,6 +345,18 @@ h2 {
   align-items: stretch;
 }
 
+.github-showcase-panel {
+  padding: 1.75rem;
+}
+
+.github-showcase-heading {
+  margin-bottom: 1.8rem;
+}
+
+.github-showcase-button {
+  flex-shrink: 0;
+}
+
 .github-card {
   display: flex;
   flex-direction: column;
@@ -495,6 +507,10 @@ h2 {
   margin: 0.35rem 0 0;
 }
 
+.contact-method-line {
+  margin-top: 1rem;
+}
+
 .contact-icon {
   min-width: 52px;
   height: 52px;
@@ -515,6 +531,41 @@ h2 {
 .contact-line-id {
   color: var(--text);
   font-weight: 700;
+}
+
+.contact-line-panel {
+  margin-top: 1rem;
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contact-line-label {
+  color: var(--muted);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-line-id {
+  margin-top: 0.45rem;
+  font-size: clamp(1.4rem, 2.8vw, 2rem);
+  letter-spacing: 0.05em;
+}
+
+.contact-line-hint {
+  color: #c9e1ff;
+}
+
+.contact-action-group {
+  margin-top: 1.2rem;
+}
+
+.contact-copy-feedback {
+  min-height: 1.4rem;
+  color: #c9e1ff;
+  font-size: 0.95rem;
 }
 
 .contact-form {
@@ -644,6 +695,10 @@ h2 {
   .card-footer {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .github-showcase-panel {
+    padding: 1.25rem;
   }
 
   .container {

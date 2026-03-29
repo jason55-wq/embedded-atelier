@@ -5,63 +5,54 @@
   <div class="container">
     <p class="eyebrow">Contact</p>
     <h1>聯絡我</h1>
-    <p>如果你有 Arduino 客製案、作品製作或系統展示需求，歡迎填寫表單與我聯繫。</p>
+    <p>如有合作需求或想進一步了解，請直接加入我的 LINE 聯絡，我會以這個方式作為主要回覆窗口。</p>
   </div>
 </section>
 
 <section class="section">
-  <div class="container contact-layout contact-layout-extended">
+  <div class="container contact-layout">
     <div class="card">
-      <h2>需求洽詢表單</h2>
-      <form class="contact-form" method="post" action="{{ url_for('contact_page') }}">
-        <label for="name">姓名</label>
-        <input id="name" name="name" type="text" value="{{ form_data.name }}" placeholder="請輸入姓名">
-
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" value="{{ form_data.email }}" placeholder="name@example.com">
-
-        <label for="subject">主旨</label>
-        <input id="subject" name="subject" type="text" value="{{ form_data.subject }}" placeholder="例如：ESP32 遠端監控系統開發">
-
-        <label for="message">需求內容</label>
-        <textarea id="message" name="message" rows="6" placeholder="請簡單描述需求、用途與預計時程">{{ form_data.message }}</textarea>
-
-        <button class="button" type="submit">送出表單</button>
-      </form>
+      <h2>LINE 聯絡方式</h2>
+      <div class="contact-method contact-method-line">
+        <span class="contact-icon" aria-hidden="true">LINE</span>
+        <div>
+          <h3>加入 LINE 洽談</h3>
+          <p>如有合作、技術討論或專案評估需求，歡迎直接透過 LINE 聯絡。</p>
+          <div class="contact-line-panel">
+            <p class="contact-line-label">LINE ID</p>
+            <p class="contact-line-id">{{ site.line_id }}</p>
+            <p class="contact-line-hint">請搜尋 LINE ID：{{ site.line_id }}</p>
+          </div>
+          <div class="button-group contact-action-group">
+            <button
+              class="button button-small"
+              type="button"
+              data-line-copy
+              data-line-id="{{ site.line_id }}"
+            >
+              複製 LINE ID
+            </button>
+            <a
+              class="button button-secondary button-small"
+              href="https://line.me/ti/p/~{{ site.line_id }}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              開啟 LINE 連結
+            </a>
+          </div>
+          <p class="contact-copy-feedback" data-line-copy-feedback aria-live="polite"></p>
+        </div>
+      </div>
     </div>
 
     <aside class="card contact-aside">
-      <h2>合作方向</h2>
+      <h2>聯絡說明</h2>
       <ul class="detail-list">
-        <li>Arduino / ESP32 客製開發</li>
-        <li>感測器整合與自動控制設計</li>
-        <li>教學、展示與作品型系統製作</li>
-        <li>未來可擴充 Email / Discord webhook 通知</li>
+        <li>主要聯絡方式已改為 LINE，不再提供網站表單送出。</li>
+        <li>建議加入時附上需求、用途與預計時程，方便我更快理解內容。</li>
+        <li>若你習慣先看作品，也可以先瀏覽 GitHub 與服務介紹頁面。</li>
       </ul>
-      <p>常用聯絡信箱：<a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a></p>
-    </aside>
-
-    <aside class="card contact-aside">
-      <h2>聯絡方式</h2>
-      <div class="contact-methods">
-        <div class="contact-method">
-          <span class="contact-icon">@</span>
-          <div>
-            <h3>Email</h3>
-            <a class="contact-link" href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>
-            <p>點擊後會開啟預設信箱，方便直接寄信詢問需求。</p>
-          </div>
-        </div>
-
-        <div class="contact-method">
-          <span class="contact-icon">LINE</span>
-          <div>
-            <h3>LINE</h3>
-            <p class="contact-line-id">LINE ID: {{ site.line_id }}</p>
-            <p>可直接搜尋 `{{ site.line_id }}` 加入好友，聯繫時請簡單說明需求內容。</p>
-          </div>
-        </div>
-      </div>
     </aside>
   </div>
 </section>

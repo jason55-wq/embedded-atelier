@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta
     name="description"
-    content="個人工作室官方網站，提供 Arduino 控制系統開發、ESP32 / IoT 整合、感測器應用與客製化作品開發服務。"
+    content="個人工作室官方網站，提供 Arduino 控制系統開發、ESP32 / IoT 整合、感測器應用與 GitHub 專案展示。"
   >
   <title>{{ page_title }} | {{ site.brand_name }}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,9 +34,9 @@
         <nav class="site-nav" data-nav>
           <a href="{{ url_for('home') }}" class="{% if request.endpoint == 'home' %}active{% endif %}">首頁</a>
           <a href="{{ url_for('services_page') }}" class="{% if request.endpoint == 'services_page' %}active{% endif %}">服務項目</a>
-          <a href="{{ url_for('portfolio_page') }}" class="{% if request.endpoint == 'portfolio_page' %}active{% endif %}">作品 / 商品</a>
-          <a href="{{ url_for('about_page') }}" class="{% if request.endpoint == 'about_page' %}active{% endif %}">關於我</a>
-          <a href="{{ url_for('contact_page') }}" class="button button-small {% if request.endpoint == 'contact_page' %}active-button{% endif %}">聯絡我</a>
+          <a href="{{ url_for('portfolio_page') }}" class="{% if request.endpoint == 'portfolio_page' %}active{% endif %}">GitHub 專案</a>
+          <a href="{{ url_for('about_page') }}" class="{% if request.endpoint == 'about_page' %}active{% endif %}">關於工作室</a>
+          <a href="{{ url_for('contact_page') }}" class="button button-small {% if request.endpoint == 'contact_page' %}active-button{% endif %}">聯絡我們</a>
         </nav>
       </div>
     </header>
@@ -59,24 +59,24 @@
       <div class="container footer-grid">
         <div>
           <h3>{{ site.brand_name }}</h3>
-          <p>專注於 Arduino、ESP32、感測器整合與小型 IoT 應用的技術工作室。</p>
+          <p>專注於 Arduino、ESP32、IoT 系統整合與實作開發，並以 GitHub 作為完整專案與程式碼展示入口。</p>
         </div>
         <div>
-          <h4>快速導覽</h4>
+          <h4>網站導覽</h4>
           <ul>
             <li><a href="{{ url_for('services_page') }}">服務項目</a></li>
-            <li><a href="{{ url_for('portfolio_page') }}">作品 / 商品</a></li>
-            <li><a href="{{ url_for('about_page') }}">關於我</a></li>
-            <li><a href="{{ url_for('contact_page') }}">聯絡我</a></li>
+            <li><a href="{{ url_for('portfolio_page') }}">GitHub 專案</a></li>
+            <li><a href="{{ url_for('about_page') }}">關於工作室</a></li>
+            <li><a href="{{ url_for('contact_page') }}">聯絡我們</a></li>
           </ul>
         </div>
         <div>
-          <h4>聯絡方式</h4>
+          <h4>聯絡資訊</h4>
           <ul>
             <li>Email: <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a></li>
             <li>LINE ID: {{ site.line_id }}</li>
-            <li>合作形式: 客製開發 / 作品販售 / 技術諮詢</li>
-            <li>部署友善: Flask + Render Ready</li>
+            <li>GitHub: <a href="{{ site.github_profile_url }}" target="_blank" rel="noopener noreferrer">{{ site.github_username }}</a></li>
+            <li>技術架構: Flask + Render Ready</li>
           </ul>
         </div>
       </div>
