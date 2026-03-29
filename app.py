@@ -12,8 +12,9 @@ def create_app() -> Flask:
 
     site_config = {
         "brand_name": "Embedded Atelier",
-        "tagline": "Arduino / ESP32 專案開發與 IoT 原型製作",
+        "tagline": "Arduino / ESP32 控制整合、IoT 原型與工程施工服務",
         "contact_email": "we25266855@gmail.com",
+        "contact_phone": "0978705853",
         "line_id": "we252668",
         "github_username": "jason55-wq",
         "github_profile_url": "https://github.com/jason55-wq",
@@ -31,6 +32,16 @@ def create_app() -> Flask:
             "features": ["Wi-Fi 連線與通訊", "遠端資料上傳", "IoT 情境原型"],
         },
         {
+            "title": "線槽工程",
+            "summary": "提供現場線槽配置、安裝與整理服務，協助線路佈局更整齊並兼顧後續維護需求。",
+            "features": ["現場線槽配置", "線槽安裝固定", "線路整理與收整"],
+        },
+        {
+            "title": "拉線工程",
+            "summary": "提供設備配線、現場拉線與基礎線路施工服務，配合實際場域需求完成佈線作業。",
+            "features": ["設備配線規劃", "現場拉線施工", "基礎線路整理"],
+        },
+        {
             "title": "裝置資料監測",
             "summary": "協助將設備狀態轉成可觀察資料，讓測試、展示與後續維護更加清楚。",
             "features": ["資料採集規劃", "狀態監測流程", "展示用資料輸出"],
@@ -43,9 +54,9 @@ def create_app() -> Flask:
     ]
 
     about_points = [
-        "聚焦 Arduino、ESP32 與 IoT 類型專案，重視可以實際運作與驗證的結果。",
+        "聚焦 Arduino、ESP32、IoT 與現場配線工程，重視可以實際運作與驗證的結果。",
         "偏好清楚的模組拆分、穩定的整合流程，以及方便展示的成果交付方式。",
-        "開發內容可搭配 GitHub 展示，方便後續協作、追蹤與持續迭代。",
+        "開發與工程內容可搭配 GitHub 展示、現場施工與後續維護需求，方便持續協作與追蹤。",
     ]
 
     def render_page(template_name: str, **context):
